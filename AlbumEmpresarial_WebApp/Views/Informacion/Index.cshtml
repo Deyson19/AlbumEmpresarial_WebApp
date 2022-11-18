@@ -1,0 +1,53 @@
+﻿@using AlbumEmpresarial_WebApp.Controllers
+@model IEnumerable<AlbumEmpresarial_WebApp.Context.Foto>
+
+@{
+    ViewData["Title"] = "Index";
+    var datos = InformacionController.TraerDatos();
+
+}
+<h1 class="text-center">Información de los datos de las Fotos</h1>
+
+<table class="table" id="datos_fotos">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Descripcion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaEvento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Lugar)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DescripcionEvento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Imagen)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaEvento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Lugar)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DescripcionEvento)
+            </td>
+            <td>
+                <img src="@datos" class="rounded-circle" width="60" height="60" asp-append-version="true">
+            </td>
+            
+        </tr>
+}
+    </tbody>
+</table>
